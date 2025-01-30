@@ -1,0 +1,410 @@
+.article-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin:5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+/* Button Styling */
+.btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Styling */
+section {
+    margin-top: 40px;
+}
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin: 40px 0;
+}
+
+.theme-list {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin-top: 30px;
+
+
+}
+h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Card Layout for both Latest Issues and Featured Themes */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    flex: 1 1 calc(33.333% - 40px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 100%;
+    }
+}
+
+/* Latest Articles Styling */
+.latest-articles .article-list,
+.latest-issues .issue-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+.featured-themes .theme-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+.theme-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.theme-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.theme-card h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.theme-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.theme-card .btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.theme-card .btn:hover {
+    background-color: #0056b3;
+}
+
+.theme-card form {
+    margin-top: 20px;
+}
+
+.theme-card form button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+
+    border-radius: 5px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.theme-card form button:hover {
+    background-color: #218838;
+}
+
+.theme-card form button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+.latest-articles .article-card,
+.featured-themes .theme-card,
+.latest-issues .issue-card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.latest-articles .article-card h3,
+.featured-themes .theme-card h3,
+.latest-issues .issue-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.latest-articles .article-card p,
+.featured-themes .theme-card p,
+.latest-issues .issue-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.latest-articles .article-card .btn,
+.featured-themes .theme-card .btn{
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.latest-articles .article-card .btn:hover,
+.featured-themes .theme-card .btn:hover:hover {
+    background-color: #0056b3;
+}
+
+/* Styling for images in cards (for Latest Issues) */
+.latest-issues .issue-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+
+
+
+
+/* General alert styling */
+.custom-alert {
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    color: #fff;
+    text-align: center;
+}
+
+/* Success message styling */
+.custom-alert-success {
+    background-color: #4CAF50; /* Green */
+    border: 1px solid #388E3C; /* Darker green */
+}
+
+.custom-alert-success a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Optional: Hover effect */
+.custom-alert-success:hover {
+    background-color: #45a049;
+    border-color: #307c35;
+}
+/* Chat section container */
+.chat-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Chat messages list */
+.chat-messages {
+    margin-bottom: 20px;
+}
+
+/* Individual message */
+.message {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #e9e9e9;
+}
+
+.message strong {
+    display: block;
+    font-weight: bold;
+}
+
+.message p {
+    margin: 5px 0;
+    color: #333;
+}
+
+.message small {
+    color: #888;
+}
+
+/* Message input */
+textarea.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    background-color: #fff;
+    resize: none;
+}
+
+/* Button for sending messages */
+button.btn {
+    background-color: #4CAF50; /* Green */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.btn:hover {
+    background-color: #45a049;
+}
+/* Rating section container */
+.rating-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Rating title */
+.rating-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+/* Rating select input */
+select.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    font-size: 14px;
+}
+
+/* Submit button for rating */
+button.btn {
+    margin-top: 10px;
+    background-color: #4CAF50; /* Green */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.btn:hover {
+    background-color: #45a049;
+}
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Adds space between the left and right columns */
+}
+
+.left-column {
+    flex: 3; /* This takes up the available space on the left side */
+}
+
+.right-column {
+    flex: 1; /* This takes up more space on the right side */
+}
+
+.featured-themes, .latest-issues, .latest-articles {
+    margin-bottom: 20px;
+}
+
+.theme-list, .issue-list, .article-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between individual cards */
+}
+
+.theme-card, .issue-card, .article-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+}
+/* Styling for View More Button */
+.view-more-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.view-more-container .btn {
+    background-color: #28a745; /* Green color for View More */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.view-more-container .btn:hover {
+    background-color: #218838;
+}
