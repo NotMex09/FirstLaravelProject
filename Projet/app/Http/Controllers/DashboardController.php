@@ -9,7 +9,7 @@ use App\Models\User;
 use App\Models\Article;
 use App\Models\Theme;
 use App\Models\Conversation;
-
+use App\Models\Rating;
 
 class DashboardController extends Controller
 {
@@ -23,7 +23,9 @@ class DashboardController extends Controller
 
         // Fetch subscribed themes
         $subscribedThemes = $user->subscriptions()->with('theme')->get()->pluck('theme');
-        $myThemeSubscriptions = Article::where('theme_id', auth()->user()->manager_of_theme) ->get();
+        $myThemeSubscriptions = Subscription::where('theme_id', auth()->user()->manager_of_theme)
+        ->with('user') // Eager load the user relationship
+        ->get();
         // Fetch all articles with status published
         $articles = Article::where('status', 'published')->get();
         $myThemeArticles = Article::where('theme_id', auth()->user()->manager_of_theme)->get();
@@ -36,7 +38,9 @@ class DashboardController extends Controller
         $myConversations = Conversation::where('user_id', auth()->user()->id)
     ->get();
 
-        $myThemeConversations = Conversation::where('theme_id', auth()->user()->manager_of_theme) ->get();
+    $myThemeConversations = Conversation::whereHas('article', function ($query) {
+        $query->where('theme_id', auth()->user()->manager_of_theme);
+    })->with(['article', 'user'])->get(); // Eager load relationships
         // Retrieve articles for the authenticated user and paginate
         $userArticles = Article::where('user_id', auth()->id())->get();
         // Fetch all articles with status pending or approved
@@ -79,9 +83,26 @@ class DashboardController extends Controller
             'subscriber' => 'dashboard.subscriber',
             default => 'dashboard',
         };
-
-        // Pass statistics to the view
+        $histories = Auth::user()
+                 ->histories()
+                 ->with('article')
+                 ->orderBy('viewed_at', 'desc') // Sort by viewed_at in descending order
+                 ->get();
+        // Fetch the user's ratings with related articles
+        $myRatings = Rating::where('user_id', $user->id)->with('article')->get();
+           // Fetch ratings for all articles in the theme the user manages
+    $themeRatings = [];
+    if ($user->manager_of_theme) {
+        $themeRatings = Rating::whereHas('article', function ($query) use ($user) {
+            $query->where('theme_id', $user->manager_of_theme);
+        })->with('article', 'user')->get();
+    }
+    // Fetch all ratings (for admins)
+    $allRatings = Rating::with('article', 'user')->get();
+      // Fetch saved articles
+      $savedArticles = $user->savedArticles()->with('user')->get();
         return view($viewName, compact(
+            'histories',
             'recommendedArticles',
             'subscribedThemes',
             'articles',
@@ -97,6 +118,10 @@ class DashboardController extends Controller
             'commentCount',  // Pass comment count
             'userArticles',
             'userConversations',
+            'myRatings',
+            'themeRatings',
+            'allRatings',
+            'savedArticles',
             'proposedArticles',
             'myThemeArticles',
             'myThemeProposedArticles',

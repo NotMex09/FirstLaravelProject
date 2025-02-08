@@ -7,6 +7,7 @@
     <title>Tech Horizons</title>
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
    :root {
@@ -14,6 +15,10 @@
     --secondary: #3b82f6;
     --dark: #1e293b;
     --light: #f8fafc;
+    --neon-cyan: #0ff;
+    --neon-pink: #f0f;
+    --hologram-blue: #3b82f6;
+
 }
 
 * {
@@ -61,13 +66,17 @@ header {
     text-decoration: none;
 }
 
+
+
 /* Center Elements */
 .center-elements {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px;
-    margin-bottom: 10px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    margin-left: 95px;
 }
 
 /* Search Form */
@@ -120,40 +129,19 @@ body.dark-theme #theme-toggle {
     display: inline-block;
 }
 
-.auth-links a {
-    text-decoration: none;
-    color: var(--dark);
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.auth-links a:hover {
-    color: var(--primary);
-}
-
 /* Main Navigation Links */
 .nav-links {
     list-style: none;
     display: flex;
     gap: 20px;
     justify-content: center;
-    padding: 10px 0;
+    padding: 5px 0;
 }
 
 .nav-links li {
     display: inline-block;
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: var(--dark);
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover {
-    color: var(--primary);
-}
 body.dark-theme h1,
 body.dark-theme h2,
 body.dark-theme h3,
@@ -161,7 +149,7 @@ body.dark-theme a {
     color: var(--light); /* Ensure text is white */
 }
 
-body.dark-theme a:hover {
+body.dark-theme .hr:hover {
     color: var(--secondary); /* Slight color change on hover */
 }
 
@@ -262,7 +250,7 @@ body.dark-theme a:hover {
 }
 
 /* Make Navigation Links More Modern */
-.auth-links a, .nav-links a {
+.auth-links .hr, .nav-links a {
     position: relative;
     text-decoration: none;
     font-weight: bold;
@@ -272,10 +260,10 @@ body.dark-theme a:hover {
 .nav-links a:hover{
     color: var(--secondary);
 }
-.auth-links a:hover  {
-    color: var(--dark);
+.auth-links .hr:hover  {
+    color: var(--secondary);
 }
-.auth-links a::after,.nav-links a::after {
+.auth-links .hr::after,.nav-links a::after {
     content: '';
     position: absolute;
     width: 100%;
@@ -287,7 +275,7 @@ body.dark-theme a:hover {
     transition: transform 0.3s ease-in-out;
 }
 
-.nav-links a:hover::after {
+.nav-links a:hover::after,.auth-links .hr:hover::after {
     transform: scaleX(1);
 }
 
@@ -298,9 +286,6 @@ body.dark-theme .btn-link {
 
 body.dark-theme .btn-link:hover {
     box-shadow: 0px 4px 10px rgba(59, 130, 246, 0.3);
-}
-body.dark-theme .auth-links a:hover {
-    color: var(--light) ;
 }
 
 .social-media {
@@ -389,12 +374,220 @@ body.dark-theme .auth-links a:hover {
         box-shadow: 0 0 15px var(--secondary),
                    inset 0 0 15px var(--secondary);
     }
+    /*Loader*/
+.holo-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    overflow: hidden;
+    font-family: 'Space Mono', monospace;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.quantum-container {
+    position: relative;
+    width: 600px;
+    height: 300px;
+    perspective: 1000px;
+}
+
+.morph-grid {
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background-image:
+        linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: grid-flow 20s linear infinite;
+    filter: brightness(1.5);
+}
+
+.neon-nexus {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    font-weight: 700;
+    display: flex;
+    gap: 0.8rem;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+}
+
+.neon-nexus span {
+    color: #0ff;
+    animation: char-float 3s ease-in-out infinite;
+}
+
+.flicker-part {
+    animation: neon-flicker 1.5s infinite;
+}
+
+.energy-pulse {
+    position: relative;
+    color: #f0f;
+    animation: energy-surge 2s infinite;
+}
+
+.singularity-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, #0ff 10%, transparent 60%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(30px);
+    opacity: 0.7;
+    animation: core-pulse 4s infinite;
+}
+
+.particle-vortex {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 60%, #000 100%);
+    animation: vortex-spin 20s linear infinite;
+}
+
+.quantum-progress {
+    position: relative;
+    width: 400px;
+    margin-top: 4rem;
+}
+
+.progress-wave {
+    height: 3px;
+    background: linear-gradient(90deg, #0ff, #f0f);
+    width: 0%;
+    animation: wave-expand 4s infinite;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.percentage-display {
+    position: absolute;
+    right: -50px;
+    top: -15px;
+    color: #0ff;
+    font-size: 1.5rem;
+    text-shadow: 0 0 10px #0ff;
+}
+
+.system-status {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: #94a3b8;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    animation: status-glitch 5s infinite;
+}
+
+@keyframes grid-flow {
+    0% { transform: rotateX(60deg) translateY(0%); }
+    100% { transform: rotateX(60deg) translateY(-40%); }
+}
+
+@keyframes char-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes neon-flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+        text-shadow: 0 0 20px #0ff;
+    }
+    20%, 24%, 55% {
+        opacity: 0.3;
+        text-shadow: none;
+    }
+}
+
+@keyframes energy-surge {
+    0% { color: #f0f; }
+    50% {
+        color: #0ff;
+        text-shadow: 0 0 30px #0ff;
+    }
+    100% { color: #f0f; }
+}
+
+@keyframes core-pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.5); }
+}
+
+@keyframes vortex-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes wave-expand {
+    0% { width: 0%; opacity: 0; }
+    30% { width: 45%; opacity: 1; }
+    70% { width: 75%; }
+    100% { width: 100%; opacity: 0; }
+}
+
+@keyframes status-glitch {
+    0%, 100% {
+        text-shadow: 2px 2px 0 #f0f, -2px -2px 0 #0ff;
+        transform: skew(0deg);
+    }
+    2% { transform: skew(3deg); }
+    4% { text-shadow: -2px -2px 0 #f0f, 2px 2px 0 #0ff; }
+    98% { transform: skew(-2deg); }
+}
+
+body.loaded .holo-loader {
+    opacity: 0;
+    pointer-events: none;
+}
     </style>
 </head>
 <body>
-     
+{{-- Loader --}}
+<div id="th-loader" class="holo-loader">
+    <div class="quantum-container">
+        <div class="morph-grid"></div>
+        <div class="neon-nexus">
+            <span class="flicker-part">T</span>
+            <span>E</span>
+            <span class="flicker-part">C</span>
+            <span>H</span>
+            <span class="energy-pulse">H</span>
+            <span>O</span>
+            <span>R</span>
+            <span class="flicker-part">I</span>
+            <span>Z</span>
+            <span>O</span>
+            <span>N</span>
+            <span>S</span>
+        </div>
+        <div class="singularity-core"></div>
+        <div class="particle-vortex"></div>
+    </div>
+    <div class="quantum-progress">
+        <div class="progress-wave"></div>
+        <div class="percentage-display">0%</div>
+        <div class="system-status">WARP CORE INITIALIZED</div>
+    </div>
+</div>
     <header>
-         
+
         <nav class="main-nav">
             <!-- Logo -->
             <div class="logo">
@@ -413,8 +606,8 @@ body.dark-theme .auth-links a:hover {
             <!-- Auth Links -->
             <ul class="auth-links">
                 @auth
-                    <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                    <li><a href="{{ route('profile') }}">Profile</a></li>
+                    <li ><a href="{{ route('dashboard') }}" class="hr">Dashboard</a></li>
+                    <li ><a href="{{ route('profile') }}" class="hr">Profile</a></li>
                     <li>
                         <form action="{{ route('logout') }}" method="POST" class="logout-form">
                             @csrf
@@ -424,6 +617,11 @@ body.dark-theme .auth-links a:hover {
                 @else
                     <li><a class="btn-link" href="{{ route('register') }}">Register</a></li>
                     <li><a class="btn-link" href="{{ route('login') }}">Login</a></li>
+
+                    <style>.center-elements {
+                        margin-left: 7px;
+                    }
+                    </style>
                 @endauth
             </ul>
         </nav>
@@ -449,9 +647,9 @@ body.dark-theme .auth-links a:hover {
     <footer>
         <p>&copy; {{ date('Y') }} Tech Horizons. All rights reserved.</p>
         <nav>
-            <a href="{{ route('about') }}">About Us</a>
-            <a href="{{ route('contact') }}">Contact</a>
-            <a href="{{ route('privacy') }}">Privacy Policy</a>
+            <a href="{{ route('about') }}" class="hr">About Us</a>
+            <a href="{{ route('contact') }}" class="hr">Contact</a>
+            <a href="{{ route('privacy') }}" class="hr">Privacy Policy</a>
         </nav>
         <div class="social-media">
             <p>Follow Us:</p>
@@ -462,7 +660,7 @@ body.dark-theme .auth-links a:hover {
             </div>
         </div>
     </footer>
-    
+
 
     <!-- JavaScript for Theme Toggle -->
 <script>
@@ -494,6 +692,54 @@ body.dark-theme .auth-links a:hover {
             });
         });
     });
+    /*Loader*/
+document.addEventListener("DOMContentLoaded", function() {
+    const loader = document.getElementById('th-loader');
+    const percentage = document.querySelector('.percentage-display');
+    const status = document.querySelector('.system-status');
+    const phrases = [
+        "ACTIVATING QUANTUM THRUSTERS",
+        "CALIBRATING NEURAL MATRIX",
+        "SYNCHRONIZING ORBITALS",
+        "ENGAGING HYPERDRIVE",
+        "OPTIMIZING HOLO-INTERFACE"
+    ];
+
+    let progress = 0;
+
+    // Progress simulation
+    const progressInterval = setInterval(() => {
+        progress += Math.random() * 3;
+        const current = Math.min(progress, 100);
+        percentage.textContent = `${Math.floor(current)}%`;
+
+        if(progress >= 100) {
+            clearInterval(progressInterval);
+            status.textContent = "SYSTEMS NOMINAL";
+        } else {
+            status.textContent = phrases[Math.floor((progress/100) * phrases.length)];
+        }
+    }, 120);
+
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            document.body.classList.add('loaded');
+        }, 1500);
+    });
+
+    // Mouse particle interaction
+    document.addEventListener('mousemove', (e) => {
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+        loader.style.setProperty('--mouse-x', x);
+        loader.style.setProperty('--mouse-y', y);
+    });
+
+    // Fallback
+    setTimeout(() => {
+        document.body.classList.add('loaded');
+    }, 600);
+});
 </script>
 </body>
 </html>

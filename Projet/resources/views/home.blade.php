@@ -12,7 +12,7 @@
     border: 2px solid #333;
     border-radius: 8px;
 }
-
+body.dark-theme .theme-list{border: 2px solid white;}
 /* Add styles for the animated circle container */
 .circle-container {
     display: flex;
@@ -184,36 +184,7 @@ body.dark-theme .btn {
 body.dark-theme .btn:hover {
     background-color: #2980b9;
 }
-/* Techy Bottom Animation */
-.bottom-animation {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 50px;
-    background: #000;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.tech-line {
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, #00ff90, #00c6ff, #00ff90);
-    background-size: 200% 100%;
-    animation: techAnimation 2s linear infinite;
-}
-
-@keyframes techAnimation {
-    0% {
-        background-position: 200% 0;
-    }
-    100% {
-        background-position: -200% 0;
-    }
-}
 /* Animated Text Container */
 .animated-text-container {
     text-align: center;
@@ -252,7 +223,8 @@ body.dark-theme blink{
         border-color:black;
     }
 }
-
+.ET{margin-left: 30px;}
+.right-column{margin-top: -4px;}
 </style>
 
 <div class="hero-section">
@@ -288,7 +260,7 @@ body.dark-theme blink{
     <!-- Left Column (Latest Issues and Latest Articles) -->
     <div class="left-column">
         <div class="latest-articles">
-            <h2>Latest Articles</h2>
+            <h2 class="ET">Latest Articles</h2>
             <div class="article-list">
                 @foreach ($articles as $article)
                 <div class="article-card">
@@ -304,7 +276,7 @@ body.dark-theme blink{
         </div>
 
         <div class="latest-issues">
-            <h2>Latest Issues</h2>
+            <h2 class="ET">Latest Issues</h2>
             <div class="issue-list">
                 @foreach ($issues as $issue)
                 <div class="issue-card">
@@ -322,7 +294,7 @@ body.dark-theme blink{
     <!-- Right Column (Theme List) -->
     <div class="right-column">
         <div class="featured-themes">
-            <h2>Featured Themes</h2>
+            <h2 class="ET">Featured Themes</h2>
             <div class="theme-list">
                 @foreach ($themes as $theme)
                 <div class="theme-card">
@@ -347,9 +319,5 @@ body.dark-theme blink{
 <div class="animated-text-container">
     <h2 class="animated-text">Thanks for visiting our Website</h2>
 </div>
-    <!-- Techy Bottom Animation -->
-    <div class="bottom-animation">
-        <div class="tech-line"></div>
-    </div>
 
 @endsection

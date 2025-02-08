@@ -2,6 +2,7 @@
 
 @section('content')
 <style>
+
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
@@ -9,7 +10,6 @@ body {
     margin: 0;
     padding: 0;
 }
-
 .container {
     max-width: 600px;
     margin: 50px auto;
@@ -105,7 +105,6 @@ button[type="submit"]:active {
     }
 }
 </style>
-
 <div class="container">
     <h1>Edit Profile</h1>
     <form action="{{ route('profile.update') }}" method="POST">

@@ -117,9 +117,6 @@ body.dark-theme .theme1-card{
 body.dark-theme h2{
     color: #fdfcfc
 }
-body.dark-theme p{
-    color: #e0a800
-}
 body.dark-theme .theme1-card p {
 
     color: #bbb;

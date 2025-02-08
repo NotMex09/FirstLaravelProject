@@ -244,8 +244,14 @@ class ArticleSeeder extends Seeder
             ],
         ];
 
-        foreach ($articles as $article) {
-            Article::create($article);
+        foreach ($articles as $articleData) { 
+            $article = Article::create($articleData);
+            
+            if ($articleData['status'] === 'published') { 
+                $article->update([
+                    'published_at' => now()
+                ]);
+            }
         }
     }
 }

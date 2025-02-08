@@ -54,15 +54,15 @@ h1 {
 }
 
 /* Form Styling */
-form {
+.frm {
     margin-top: 20px;
 }
 
-form div {
+.frm div {
     margin-bottom: 25px;
 }
 
-form label {
+.frm label {
     font-size: 1rem;
     font-weight: 600;
     color: #2c3e50;
@@ -70,7 +70,7 @@ form label {
     margin-bottom: 8px;
 }
 
-form input {
+.frm input {
     width: 100%;
     padding: 12px 15px;
     border: 2px solid #e0e0e0;
@@ -80,7 +80,7 @@ form input {
     transition: all 0.3s ease;
 }
 
-form input:focus {
+.frm input:focus {
     border-color: #4a90e2;
     background-color: #fff;
     box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1);
@@ -121,7 +121,7 @@ form input:focus {
         font-size: 1rem;
     }
 
-    form input {
+    .frm input {
         font-size: 0.95rem;
     }
 
@@ -131,19 +131,20 @@ form input:focus {
     }
 }
 body.dark-theme h1{
-    color: #f9f9f9
+    color: #f9f9f9;
 }
 
 body.dark-theme .container{
-    background-color: #35487d
+    background-color: #35487d;
 }
 body.dark-theme .dark{
-    color: #f9f9f9
+    color: #f9f9f9;
 }
 img{
     cursor: pointer;
 
 }
+
 </style>
 
 <div class="container">
@@ -159,7 +160,7 @@ img{
     <div class="profile-info">
         @if($user->image && file_exists(public_path($user->image)))
     <p><strong>Profile Picture:</strong></p>
-    <img src="{{ asset($user->image) }}" alt="Profile Picture" style="width:150px; height:150px; border-radius:50%;id="profile-picture-preview"
+    <img src="{{ asset($user->image) }}" alt="Profile Picture" style="width:150px; height:150px; border-radius:50%;id=profile-picture-preview;"
             onclick="document.getElementById('profile_picture').click();">
 @else
     <p>No profile picture uploaded.</p>
@@ -172,7 +173,7 @@ img{
     </div>
 
     <!-- Edit Profile Form -->
-    <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data" class="frm">
 
 
 

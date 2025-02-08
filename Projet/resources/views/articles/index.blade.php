@@ -2,7 +2,7 @@
 
 @section('content')
 <style>
-   .article1-list {
+    .article1-list {
     display: flex;
     flex-wrap: wrap; /* Allow wrapping to fit only four cards per row */
     gap: 20px; /* Space between cards */
@@ -20,8 +20,8 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
     padding: 20px;
-    display: flex; 
-    flex-direction: column; 
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 .article1-card p {
@@ -72,7 +72,7 @@
     margin-top: 10px;
     font-size: 1rem;
     color: #666;
-    
+
 }
 
 .article1-card .btn {
@@ -84,7 +84,7 @@
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    
+
 }
 
 .article1-card .btn:hover {

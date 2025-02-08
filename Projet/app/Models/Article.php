@@ -5,10 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Theme;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Conversation;
 
 class Article extends Model
 {
+    public function savedByUsers()
+{
+    return $this->belongsToMany(User::class, 'saved_articles');
+}
+public function histories()
+{
+    return $this->hasMany(History::class);
+}
     public function issues()
     {
         return $this->belongsToMany(Issue::class, 'article_issue');
@@ -44,6 +53,23 @@ class Article extends Model
       {
           return asset('storage/images/articles/' . $this->image); // Modify according to your storage setup
       }
+      //for recomended articles
+public function isSavedByUser($user)
+{
+    return $user ? $user->savedArticles->contains($this->id) : false;
+}
+
+public function averageRating()
+{
+    return number_format($this->ratings()->avg('rating') ?? 0, 1);
+}
+public function is_publicly_accessible()
+{
+    if (Auth::check()) return true;
+    
+    // Check if article is in any private issues
+    return !$this->issues()->where('is_public', false)->exists();
+}
     protected $fillable = [
         'title',
         'content',
@@ -51,5 +77,6 @@ class Article extends Model
         'user_id',
         'status',
         'image',
+        'published_at',
     ];
 }

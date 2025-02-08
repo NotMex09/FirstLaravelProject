@@ -20,7 +20,7 @@ use App\Http\Controllers\UserController;
 use App\Models\Article;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-
+use App\Http\Controllers\SavedArticleController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -41,7 +41,13 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 Route::get('/history', [HistoryController::class, 'index'])->name('history.index');
-
+// For saving to history (new route )
+Route::post('/history', [HistoryController::class, 'store'])
+    ->name('history.store')
+    ->middleware('auth');
+    Route::delete('/history/{history}', [HistoryController::class, 'destroy'])
+    ->name('history.destroy')
+    ->middleware('auth');
  // Profile Routes (Choose one)
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [UserController::class, 'index'])->name('profile'); // View profile (GET)
@@ -93,7 +99,7 @@ Route::get('/themes/{id}', [ThemeController::class, 'show'])->name('themes.show'
 Route::get('/articles/{id}', [ArticleController::class, 'show'])->name('articles.show');
 Route::post('/conversations/store', [ConversationController::class, 'store'])->name('conversations.store');
 Route::post('/ratings/store', [RatingController::class, 'store'])->name('ratings.store');
-
+Route::post('/comments/like-dislike', [ConversationController::class, 'toggleLikeDislike'])->middleware('auth');
 
 // Route to delete a user
 Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
@@ -131,3 +137,17 @@ Route::get('/themes/create', [ThemeController::class, 'create'])->name('themes.c
 Route::get('/themes', [ThemeController::class, 'index'])->name('themes.index');
 
 
+// Saved Articles Routes
+Route::post('/articles/{article}/save', [SavedArticleController::class, 'toggle'])->name('articles.save');
+Route::delete('/articles/{article}/unsave', [ArticleController::class, 'unsave'])->name('articles.unsave');
+//private issue articles 
+// Add this before any article routes
+Route::bind('article', function ($value) {
+    $article = Article::findOrFail($value);
+    
+    if (!$article->is_publicly_accessible()) {
+        abort_unless(Auth::check(), 403, 'This article is part of a private issue. Please log in to view.');
+    }
+
+    return $article;
+});

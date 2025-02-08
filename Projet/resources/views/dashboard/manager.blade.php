@@ -53,8 +53,12 @@ body {
 }
 
 .sidebar ul li a:hover {
+    background-color: #2d4983;
+}
+body.dark-theme .sidebar ul li a:hover {
     background-color: #34495e;
 }
+
 
 /* Main Content Styling */
 .main-content {
@@ -271,7 +275,9 @@ body.dark-theme .statistics{
     background: linear-gradient(21deg, #080808, #2d4983);
 }
 
-
+body.dark-theme .center{
+    color: #fff;
+}
 
 /* ## */
 body.dark-theme .user-table th,body.dark-theme .article-table  th ,.dark-them.article-table th, .dark-them.issue-table th,body.dark-theme .issue-table th {
@@ -287,6 +293,273 @@ body.dark-theme .theme-card ,body.dark-theme .article-card{
     background-color: #2d4983; /* Dark background for statistics items */
     color: #ecf0f1; /* Light text */
 }
+/*History*/
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    animation: slideUp 0.4s ease;
+}
+
+.styled-table thead tr {
+    background: linear-gradient(45deg, #6366f1, #8b5cf6);
+    color: white;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 15px 20px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+    transition: all 0.2s ease;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #6366f1;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #f1f3ff;
+    transform: translateX(10px);
+}
+body.dark-theme .styled-table tbody tr:hover{
+    background-color: #292d45;
+    transform: translateX(10px);
+}
+.article-link {
+    color: #4f46e5;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+body.dark-theme .article-link{color: rgb(11, 11, 11);}
+body.dark-theme  .styled-table tbody tr:hover .article-link{color: rgb(242, 236, 236);}
+.article-link:hover {
+    color: #6366f1;
+    text-decoration: underline;
+}
+
+.clear-history-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.2s;
+}
+
+.clear-history-btn:hover {
+    transform: scale(1.2);
+}
+
+.no-history {
+    text-align: center;
+    padding: 20px;
+    color: #6b7280;
+    font-style: italic;
+}
+body.dark-theme .recommended-articles{
+background-color: #304c84;
+}
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.hidden {
+    display: none !important;
+}
+
+.dashboard-content {
+    display: block; /* Ensure default state is visible when not hidden */
+}
+/*Filter*/
+/* Theme Filter Styles */
+.theme-filter-container {
+    margin-top: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.theme-filter-btn {
+    background: linear-gradient(45deg, #6366f1, #8b5cf6);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.theme-filter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.theme-filter-dropdown {
+    display: none;
+    position: absolute;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    width: 200px;
+    margin-top: 10px;
+}
+
+.theme-filter-option {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.theme-filter-option:hover {
+    background: #f4f7fc;
+}
+/*Ratings section*/
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.styled-table th, .styled-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.styled-table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.styled-table tr:hover {
+    background-color: #f1f1f1;
+}
+body.dark-theme .ban{
+    color: black;
+}
+body.dark-theme tr:hover .ban{
+    color: rgb(250, 248, 248);
+}
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+/*Save/Unsave*/
+.unsave-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.unsave-btn:hover {
+    background-color: darkred;
+}
+/*Recomended articles*/
+.recommended-articles {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.article-list {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.article-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensure all cards have the same height */
+}
+
+.article-card h3 {
+    margin-top: 0;
+}
+
+.article-card p {
+    flex-grow: 1; /* Allow the content to take up remaining space */
+    margin-bottom: 1rem;
+}
+
+.meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    font-size: 0.9em;
+}
+
+.saved-badge {
+    color: #ffc107;
+}
+
+.rating {
+    color: #6c757d;
+}
+body.dark-theme .rating{color: gold;}
+.no-recommendations {
+    color: #6c757d;
+    text-align: center;
+    padding: 2rem;
+}
+
+.card-footer {
+    margin-top: auto; /* Push footer to the bottom */
+    padding-top: 1rem;
+    text-align: left; /* Align button to the left */
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
 </style>
 <!-- Dashboard Container -->
 <div class="dashboard-container">
@@ -294,28 +567,29 @@ body.dark-theme .theme-card ,body.dark-theme .article-card{
     <div class="sidebar">
         <h2>Dashboard</h2>
         <ul>
-            <li><a href="#manager-section" onclick="showContent('manager-section')">Dashboard</a></li>
-            <li><a href="#articles-list" onclick="showContent('articles-list')">All My theme Articles</a></li>
-            <li><a href="#Proposed-articles-list" onclick="showContent('Proposed-articles-list')">My theme proposed articles </a></li>
-            <li><a href="#subscribers-list" onclick="showContent('subscribers-list')">All my theme subscribers</a></li>
+            <li><a href="javascript:void(0);" data-section="manager-section" onclick="showContent('manager-section', event)">Dashboard</a></li>
+            <li><a href="javascript:void(0);" data-section="history-section" onclick="showContent('history-section', event)">History</a></li>
+            <li><a href="javascript:void(0);" data-section="saved-articles" onclick="showContent('saved-articles', event)">Saved Articles</a></li>
+            <li><a href="javascript:void(0);" data-section="articles-list" onclick="showContent('articles-list', event)">All My Theme Articles</a></li>
+            <li><a href="javascript:void(0);" data-section="Proposed-articles-list" onclick="showContent('Proposed-articles-list', event)">My Theme Proposed Articles</a></li>
+            <li><a href="javascript:void(0);" data-section="subscribers-list" onclick="showContent('subscribers-list', event)">All My Theme Subscribers</a></li>
+            <li><a href="javascript:void(0);" data-section="conversations-list" onclick="showContent('conversations-list', event)">All My Theme Comments</a></li>
+            <li><a href="javascript:void(0);" data-section="my-conversations-list" onclick="showContent('my-conversations-list', event)">My Comments</a></li>
+            <li><a href="javascript:void(0);" data-section="theme-ratings" onclick="showContent('theme-ratings', event)">All My Theme Ratings</a></li>
+            <li><a href="javascript:void(0);" data-section="my-ratings" onclick="showContent('my-ratings', event)">My Ratings</a></li>
+            <li><a href="javascript:void(0);" data-section="my-Proposed-articles-list" onclick="showContent('my-Proposed-articles-list', event)">My Proposed Articles</a></li>
+            <li><a href="javascript:void(0);" data-section="subscribed-themes" onclick="showContent('subscribed-themes', event)">Subscribed Themes</a></li>
+            <li><a href="javascript:void(0);" data-section="recommended-articles" onclick="showContent('recommended-articles', event)">Recommended Articles</a></li>
+            <li><a href="javascript:void(0);" data-section="all-issues" onclick="showContent('all-issues', event)">All Issues</a></li>
 
-            <li><a href="#conversations-list" onclick="showContent('conversations-list')">All My theme comments</a></li>
-
-            <li><a href="#my-conversations-list" onclick="showContent('my-conversations-list')">My comments</a></li>
-            <li><a href="#my-Proposed-articles-list" onclick="showContent('my-Proposed-articles-list')">My Proposed articles</a></li>
-
-            <li><a href="#subscribed-themes" onclick="showContent('subscribed-themes')">Subscribed Themes</a></li>
-            <li><a href="#recommended-articles" onclick="showContent('recommended-articles')">Recommended Articles</a></li>
-
-            <li><a href="#all-issues" onclick="showContent('all-issues')">All Issues</a></li>
-
-            <!-- Add the "Create New Article" button here -->
-        <li>
-            <a href="{{ route('articles.create') }}" class="btn" style="display: block; text-align: center; margin-top: 10px;">
-                Create New Article
-            </a>
-        </li>
+            <!-- "Create New Article" button remains unchanged -->
+            <li>
+                <a href="{{ route('articles.create') }}" class="btn" style="display: block; text-align: center; margin-top: 10px;">
+                    Create New Article
+                </a>
+            </li>
         </ul>
+
     </div>
 
     <!-- Main Content -->
@@ -352,8 +626,108 @@ body.dark-theme .theme-card ,body.dark-theme .article-card{
         </div>
     </div>
 </div>
+<!--Saved articles section-->
+<div id="saved-articles" class="dashboard-section" style="display: none;">
+    <h3>Saved Articles</h3>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Article</th>
+                <th>Author</th>
+                <th>Published Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($savedArticles as $article)
+                <tr>
+                    <td>
+                        <a href="{{ route('articles.show', $article->id) }}" class="ban">
+                            {{ $article->title }}
+                        </a>
+                    </td>
+                    <td class="ban">{{ $article->user->name }}</td>
+                    <td class="ban">{{ $article->created_at->format('d M, Y') }}</td>
+                    <td>
+                        <form action="{{ route('articles.unsave', $article->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="unsave-btn">Unsave</button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+<!--All my theme ratings-->
+<div id="theme-ratings" class="dashboard-section" style="display: none;">
+    <h3>All My Theme Ratings</h3>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Article</th>
+                <th>Rating</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($themeRatings as $rating)
+                <tr>
+                    <td class="ban">
+                        <img src="{{ $rating->user->image ? asset('/' . $rating->user->image) : asset('/uploads/profile_pictures/default-image.jpg') }}"
+                             alt="User Image"
+                             class="user-avatar">
+                        {{ $rating->user->name }}
+                    </td>
+                    <td >
+                        <a href="{{ route('articles.show', $rating->article->id) }}"class="ban">
+                            {{ $rating->article->title }}
+                        </a>
+                    </td>
+                    <td>
+                        @for ($i = 1; $i <= 5; $i++)
+                            <i class="fas fa-star" style="color: {{ $i <= $rating->rating ? 'gold' : 'gray' }};"></i>
+                        @endfor
+                    </td>
+                    <td class="ban">{{ $rating->created_at->format('d M, Y') }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
 
-
+<!--My Rating section-->
+<div id="my-ratings" class="dashboard-section" style="display: none;">
+    <h3>My Ratings</h3>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Article</th>
+                <th>My Rating</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($myRatings as $rating)
+                <tr>
+                    <td>
+                        <a href="{{ route('articles.show', $rating->article->id) }}" class="ban">
+                            {{ $rating->article->title }}
+                        </a>
+                    </td>
+                    <td>
+                        @for ($i = 1; $i <= 5; $i++)
+                            <i class="fas fa-star" style="color: {{ $i <= $rating->rating ? 'gold' : 'gray' }};"></i>
+                        @endfor
+                    </td>
+                    <td class="ban">{{ $rating->created_at->format('d M, Y') }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
 
 <!--  my theme Proposed articles Section -->
 <div id="Proposed-articles-list" class="Proposed-articles-list hidden">
@@ -415,7 +789,74 @@ body.dark-theme .theme-card ,body.dark-theme .article-card{
 @endif
 
 
+<!-- History Section -->
+<div id="history-section" class="dashboard-content hidden">
+    <h2 class="section-title">Reading History</h2>
 
+    <div class="history-table-container">
+        @if($histories->isEmpty())
+            <p class="no-history">No articles in your history yet!</p>
+        @else
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Article Title</th>
+                        <th>Category</th>
+                        <th>Date Viewed</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($histories as $history)
+<tr data-theme-id="{{ $history->article->theme->id ?? 'uncategorized' }}">
+    <td>
+        <a href="{{ route('articles.show', $history->article) }}" class="article-link">
+            {{ $history->article->title }}
+        </a>
+    </td>
+    <td data-theme-id="{{ $history->article->theme->id ?? 'uncategorized' }}" class="ban">
+        {{ $history->article->theme->name ?? 'Uncategorized' }}
+    </td>
+    <td class="ban">{{ $history->created_at->diffForHumans() }}</td>
+    <td>
+        <form action="{{ route('history.destroy', $history) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="clear-history-btn" title="Remove from history">
+                ❌
+            </button>
+        </form>
+    </td>
+</tr>
+@endforeach
+                </tbody>
+            </table>
+            <div class="theme-filter-container">
+                <button class="theme-filter-btn" onclick="toggleThemeFilter()">
+                    Filter by Theme ▼
+                </button>
+
+                <div id="theme-filter-dropdown" class="theme-filter-dropdown">
+                    @foreach($themes as $theme)
+                        <button
+                            class="theme-filter-option"
+                            data-theme-id="{{ $theme->id }}"
+                            onclick="filterByTheme('{{ $theme->id }}')"
+                        >
+                            {{ $theme->name }}
+                        </button>
+                    @endforeach
+                    <button
+                        class="theme-filter-option"
+                        onclick="clearThemeFilter()"
+                    >
+                        Show All
+                    </button>
+                </div>
+            </div>
+        @endif
+    </div>
+</div>
 
 
 <!-- All my theme  articles Section -->
@@ -569,15 +1010,27 @@ body.dark-theme .theme-card ,body.dark-theme .article-card{
         <!-- Recommended Articles -->
         <div id="recommended-articles" class="recommended-articles hidden">
             <h2>Recommended Articles</h2>
-            <div class="article-list">
-                @foreach ($recommendedArticles as $article)
-                    <div class="article-card">
-                        <h3>{{ $article->title }}</h3>
-                        <p>{{ Str::limit($article->content, 100) }}</p>
-                        <a href="{{ route('articles.show', $article->id) }}" class="btn">Read More</a>
-                    </div>
-                @endforeach
-            </div>
+            @if($recommendedArticles->count() > 0)
+                <div class="article-list">
+                    @foreach ($recommendedArticles as $article)
+                        <div class="article-card">
+                            <h3>{{ $article->title }}</h3>
+                            <p>{{ Str::limit($article->content, 100) }}</p>
+                            <div class="meta">
+                                @if($article->isSavedByUser(auth()->user()))
+                                    <span class="saved-badge">⭐ Saved</span>
+                                @endif
+                                <span class="rating">Average Rating : ★ {{ $article->averageRating() }}</span>
+                            </div>
+                            <div class="card-footer">
+                                <a href="{{ route('articles.show', $article->id) }}" class="btn">Read More</a>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            @else
+                <p class="no-recommendations">No recommendations available based on your activity.</p>
+            @endif
         </div>
 
  <!-- Subscribed Themes -->
@@ -595,7 +1048,7 @@ body.dark-theme .theme-card ,body.dark-theme .article-card{
                     <form action="{{ route('subscriptions.store') }}" method="POST" style="display:inline;">
                         @csrf
                         <input type="hidden" name="theme_id" value="{{ $theme->id }}">
-                        <button type="submit" class="btn" style="background-color:#e5ad06;">
+                        <button type="submit" class="btn" style="background-color:#e5ad06;height:46px;">
                             @php
                                 $isSubscribed = \App\Models\Subscription::where('user_id', auth()->id())
                                     ->where('theme_id', $theme->id)
@@ -687,7 +1140,7 @@ body.dark-theme .theme-card ,body.dark-theme .article-card{
                             </form>
                         </td>
                     </tr>
-                    
+
                     @endforeach
         </tbody>
     </table>
@@ -701,22 +1154,70 @@ body.dark-theme .theme-card ,body.dark-theme .article-card{
 
 <!-- JavaScript to handle content visibility -->
 <script>
-function showContent(sectionId) {
-    // Hide all sections
-    document.querySelectorAll('.main-content > div').forEach(function(section) {
-        section.classList.add('hidden');
+    function showContent(sectionId, event) {
+        if (event) event.preventDefault(); // Prevent scrolling behavior
+
+        // Hide all sections
+        document.querySelectorAll('.main-content > div').forEach(section => {
+            section.classList.add('hidden');
+            section.style.display = 'none';
+        });
+
+        // Show the selected section
+        const activeSection = document.getElementById(sectionId);
+        if (activeSection) {
+            activeSection.classList.remove('hidden');
+            activeSection.style.display = 'block';
+        }
+
+        // Update active link styling
+        document.querySelectorAll('.sidebar ul li a').forEach(link => {
+            link.classList.remove('active');
+        });
+
+        // Find the clicked link and add active styling
+        const activeLink = document.querySelector(`.sidebar ul li a[data-section="${sectionId}"]`);
+        if (activeLink) {
+            activeLink.classList.add('active');
+        }
+
+        // Update the URL hash WITHOUT scrolling the page
+        history.replaceState(null, null, `#${sectionId}`);
+    }
+
+    // Restore last opened section on page reload
+    document.addEventListener("DOMContentLoaded", function () {
+        const hash = window.location.hash.substring(1);
+        if (hash) {
+            showContent(hash);
+        }
     });
 
-    // Show the selected section
-    document.getElementById(sectionId).classList.remove('hidden');
+    /* ========================
+       THEME FILTER FUNCTIONALITY
+       ======================== */
+    function toggleThemeFilter() {
+        const dropdown = document.getElementById('theme-filter-dropdown');
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    }
 
-    // Remove 'active' class from all sidebar links
-    document.querySelectorAll('.sidebar ul li a').forEach(function(link) {
-        link.classList.remove('active');
-    });
+    function filterByTheme(themeId) {
+        const rows = document.querySelectorAll('.styled-table tbody tr');
+        rows.forEach(row => {
+            const rowThemeId = row.getAttribute('data-theme-id'); // Get theme ID from row
+            if (themeId === 'all' || rowThemeId == themeId) { // Use == for loose comparison
+                row.style.display = ''; // Show row
+            } else {
+                row.style.display = 'none'; // Hide row
+            }
+        });
+        toggleThemeFilter(); // Close dropdown after selection
+    }
 
-    // Add 'active' class to the clicked link
-    document.querySelector(`.sidebar ul li a[href="#${sectionId}"]`).classList.add('active');
-}
-</script>
+    function clearThemeFilter() {
+        filterByTheme('all');
+    }
+    </script>
+
+
 @endsection

@@ -27,6 +27,5 @@ class Issue extends Model
         'description',
         'publication_date',
         'is_public',
-        'image',
-    ];
+        'image', ];
 }

@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <style>
    .article1-list {
@@ -12,6 +11,9 @@
 }
 
 .article1-card {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: space-between; /* Space items to push button to bottom */
     width: calc(25% - 20px); /* Ensure four cards fit in one row, minus the gap */
     background-color: #f9f9f9;
     border-radius: 8px;
@@ -20,6 +22,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
     padding: 20px;
+    height: 450px; /* Ensure consistent height for all cards */
 }
 @media (max-width: 768px) {
     .article1-card {
@@ -34,19 +37,19 @@
 }
 .article1-card img {
     width: 100%;
-    height: auto;
+    height: 180px;
     border-radius: 8px;
     object-fit: cover;
 }
 
 .article1-card h2 {
-    margin-top: 15px;
+    margin:auto;
     font-size: 1.5rem;
     color: #333;
 }
 
 .article1-card p {
-    margin-top: 10px;
+    margin:auto;
     font-size: 1rem;
     color: #666;
 }
@@ -60,6 +63,7 @@
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    align-self: center;
 }
 
 .article1-card .btn:hover {
@@ -102,7 +106,7 @@ body.dark-theme .article1-card p{
             <div class="article1-card">
                  <!-- Display the image -->
             <a href="{{ route('articles.show', $article->id) }}" >
-                <img src="{{ asset('storage/' . $article->image) }}" alt="{{ $article->title }}" style="max-width: 100%; height: auto; border-radius: 8px;">
+                <img src="{{ asset('storage/' . $article->image) }}" alt="{{ $article->title }}" style="max-width: 100%; border-radius: 8px;">
             </a>
                 <h3>{{ $article->title }}</h3>
                 <p>{{ Str::limit($article->content, 100) }}</p>

@@ -38,6 +38,7 @@
     text-align: center;
     padding: 20px;
     height: 500px; 
+    width: 300px;
 }
 @media (max-width: 768px) {
     .issue1-card {

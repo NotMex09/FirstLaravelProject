@@ -87,6 +87,7 @@
 
 /* Form Styling */
 .stylish-input {
+    width: 100%;
     border: 2px solid #e0e0e0;
     border-radius: 10px;
     transition: all 0.3s ease;
@@ -103,13 +104,19 @@
 }
 
 /* Floating Labels */
+.form-floating {
+    width: 80%;
+    margin: 0 auto 1.5rem;
+}
 .form-floating label {
     color: #6c757d;
     font-weight: 500;
     font-size: 1rem;
     padding: 0 20px;
 }
-
+body.dark-theme .form-floating label {
+    color: yellow;
+}
 /* Button */
 .glowing-button {
     background: linear-gradient(135deg, #4a90e2, #357abd);
@@ -120,6 +127,7 @@
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    margin-left: 80px;
 }
 
 .glowing-button:hover {

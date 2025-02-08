@@ -10,7 +10,6 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
-
 .container {
     max-width: 1200px;
     margin: 20px auto;
@@ -54,7 +53,7 @@ a {
     font-size: 18px;
 }
 
-a:hover {
+.sr:hover {
     text-decoration: underline;
     color: #0056b3;
 }
@@ -102,7 +101,7 @@ body.dark-theme .container {
                 @foreach ($articles as $article)
                  @if($article->status=='published')
                     <li>
-                        <a href="{{ route('articles.show', $article) }}">{{ $article->title }}</a>
+                        <a href="{{ route('articles.show', $article) }}" class="sr" >{{ $article->title }}</a>
                     </li>
                     @endif
                 @endforeach
@@ -115,7 +114,7 @@ body.dark-theme .container {
             <ul>
                 @foreach ($themes as $theme)
                     <li>
-                        <a href="{{ route('themes.show', $theme) }}">{{ $theme->name }}</a>
+                        <a href="{{ route('themes.show', $theme) }}" class="sr">{{ $theme->name }}</a>
                     </li>
                 @endforeach
             </ul>
@@ -127,7 +126,7 @@ body.dark-theme .container {
             <ul>
                 @foreach ($issues as $issue)
                     <li>
-                        <a href="{{ route('issues.show', $issue) }}">{{ $issue->title }}</a>
+                        <a href="{{ route('issues.show', $issue) }}" class="sr">{{ $issue->title }}</a>
                     </li>
                 @endforeach
             </ul>
